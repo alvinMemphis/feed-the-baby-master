@@ -2,13 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/feedbaby"
     tools:context="com.example.alvin.feedthebaby.Fragment.HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
@@ -19,42 +20,61 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:capitalize="none"
-                    android:text="Welcome"
-                    android:textSize="45sp" />
 
                 <Button
                     android:id="@+id/button8"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:text="Daily activity" />
+                    android:layout_height="129dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/hd3" />
 
 
-                <Button
-                    android:id="@+id/button2"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="add baby profile"
-                    android:textSize="20sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:text="Change baby profile" />
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="159dp"
+                        android:layout_height="118dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="20sp"
+                        android:background="@drawable/hd"/>
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="118dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/hd2" />
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:capitalize="none"
-                    android:text="Baby care" />
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/hd4"
+                    android:capitalize="none" />
+
             </LinearLayout>
-        </ScrollView>
+        </RelativeLayout>
 
     </RelativeLayout>
 
