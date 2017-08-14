@@ -12,12 +12,16 @@ import android.widget.Button;
 
 import com.example.alvin.feedthebaby.BabyCare;
 import com.example.alvin.feedthebaby.DailyActivity;
+import com.example.alvin.feedthebaby.DatabaseHelper;
 import com.example.alvin.feedthebaby.Main2Activity;
 import com.example.alvin.feedthebaby.Main3Activity;
+import com.example.alvin.feedthebaby.Main5Activity;
 import com.example.alvin.feedthebaby.R;
 
 
 public class HomeFragment extends Fragment {
+    DatabaseHelper DB;
+
 
 
     public HomeFragment() {
@@ -46,7 +50,7 @@ public class HomeFragment extends Fragment {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent =new Intent(getActivity().getApplicationContext(),Main2Activity.class);
+                        Intent intent =new Intent(getActivity().getApplicationContext(),Main5Activity.class);
                         startActivity(intent);
 
                     }

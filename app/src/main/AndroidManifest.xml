@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alvin.feedthebaby">
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"></uses-feature>
 
     <application
         android:allowBackup="true"
@@ -26,7 +28,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
-        <activity android:name=".Breatfeedingguide"></activity>
+        <activity android:name=".Breatfeedingguide" />
+        <activity android:name=".WebViewexperiment"></activity>
+        <activity android:name=".Main5Activity"></activity>
+        <activity android:name=".Main6Activity"></activity>
+
     </application>
 
 </manifest>

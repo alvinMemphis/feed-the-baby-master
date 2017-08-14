@@ -12,8 +12,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
+            android:backgroundTint="@color/sub_btn_ripple">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,8 +46,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="20dp"
-                        android:textSize="20sp"
-                        android:background="@drawable/hd"/>
+                        android:background="@drawable/hd"
+                        android:textSize="20sp" />
 
                     <Button
                         android:id="@+id/button5"
