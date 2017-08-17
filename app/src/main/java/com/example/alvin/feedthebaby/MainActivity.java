@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.example.alvin.feedthebaby.Tabs.MyAdapter;
 import com.example.alvin.feedthebaby.Tabs.SlidingTabLayout;
+import com.example.alvin.feedthebaby.topmenu.Main3Activity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(browserIntent);
 
         } else if (id == R.id.nav_slideshow) {
-            Intent intent1 =new Intent(getApplicationContext(),Main3Activity.class);
+            Intent intent1 =new Intent(getApplicationContext(),Main4Activity.class);
             startActivity(intent1);
 
         } else if (id == R.id.nav_manage) {

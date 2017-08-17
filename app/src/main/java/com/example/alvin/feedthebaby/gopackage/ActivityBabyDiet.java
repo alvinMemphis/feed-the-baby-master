@@ -1,13 +1,15 @@
-package com.example.alvin.feedthebaby;
+package com.example.alvin.feedthebaby.gopackage;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class BabyCare extends AppCompatActivity {
+import com.example.alvin.feedthebaby.R;
+
+public class ActivityBabyDiet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_baby_care);
+        setContentView(R.layout.activity_baby_diet);
     }
 }

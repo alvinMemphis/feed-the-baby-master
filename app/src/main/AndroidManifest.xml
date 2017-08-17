@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alvin.feedthebaby">
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true"></uses-feature>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -21,18 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BabyCare" />
-        <activity android:name=".DailyActivity" />
-        <activity
-            android:name=".Main2Activity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Main3Activity" />
+        <activity android:name=".topmenu.BabyCare" />
+        <activity android:name=".topmenu.DailyActivity" />
+        <activity android:name=".topmenu.Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Breatfeedingguide" />
-        <activity android:name=".WebViewexperiment"></activity>
-        <activity android:name=".Main5Activity"></activity>
-        <activity android:name=".Main6Activity"></activity>
-
+        <activity android:name=".WebViewexperiment" />
+        <activity android:name=".Main5Activity" />
+        <activity android:name=".Main6Activity" />
+        <activity android:name=".gopackage.Go" />
+        <activity android:name=".gopackage.ActivityBabyDiet" />
+        <activity android:name=".gopackage.ActivitybabySchedule" />
+        <activity android:name=".gopackage.NewBabyactivity"></activity>
     </application>
 
 </manifest>
