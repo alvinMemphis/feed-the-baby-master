@@ -8,4 +8,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="baby_facts">
+        In your baby\'s first three months of life,he can only see things that are eight inches away.
+        This is the perfect distance to see your face when you\'re holding and feeding your baby.
+    </string>
 </resources>

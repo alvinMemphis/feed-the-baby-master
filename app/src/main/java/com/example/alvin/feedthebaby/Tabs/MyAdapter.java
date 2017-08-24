@@ -23,8 +23,8 @@ import com.example.alvin.feedthebaby.R;
 
      public class MyAdapter extends FragmentPagerAdapter {
         private Context mContext;
-        private String[] titles ={"A","B","C"};
-        int[] icon = new int[]{R.drawable.ic_apps_white_24dp ,R.drawable.ic_trending_up_white_24dp ,R.drawable.ic_account_circle_white_24dp  };
+        private String[] titles ={"A","C"};
+        int[] icon = new int[]{R.drawable.ic_apps_white_24dp ,R.drawable.ic_account_circle_white_24dp  };
         private int heightIcon;
 
         public MyAdapter(FragmentManager fm, Context c){
@@ -41,10 +41,9 @@ import com.example.alvin.feedthebaby.R;
             if(position ==0){
                 frag = new HomeFragment();
             }else if(position == 1){
-                frag = new ExploreFragment();
-            }else if(position == 2){
                 frag = new ChatFragment();
             }
+
 
             Bundle b = new Bundle();
             b.putInt("position", position);

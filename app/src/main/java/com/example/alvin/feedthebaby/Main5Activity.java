@@ -2,7 +2,6 @@ package com.example.alvin.feedthebaby;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,92 +14,73 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Main5Activity extends AppCompatActivity {
+    private EditText name,age;
+    SQLiteHelper DB;
     //for database
-    DatabaseHelper DB;
-    Button ok;
-    EditText editText;
+    private Button ok;
 
     //for camera
     ImageButton done;
     ImageView img;
     static final int REQUEST_IMAGE_CAPTURE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
-        ok = (Button) findViewById(R.id.ok);
-        editText = (EditText) findViewById(R.id.editText);
+        //database
+        DB = new SQLiteHelper(Main5Activity.this);
+        //camera button and image view
         done = (ImageButton) findViewById(R.id.user_profile_photo);
         img = (ImageView) findViewById(R.id.imageView3);
+        //camera button off and on
         if(!hasCamera()){
             done.setEnabled(false);
         }
+        //database input widgets
+        ok =(Button)findViewById(R.id.ok);
+        name =(EditText) findViewById(R.id.name);
+        age =(EditText) findViewById(R.id.age);
 
-        //for database
-        DB = new DatabaseHelper(this);
-        addData();
+        //method to enter data
+        dataEnter();
     }
+
+
     private boolean hasCamera(){
-        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
-    }
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);}
 
     public void launchCamera(View view){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);
-    }
+        startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);}
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) extras.get("data");
-            img.setImageBitmap(photo);
-        }
-    }
+            img.setImageBitmap(photo);}}
 
-    //////////////for database
-    public void addData(){
+    public void dataEnter(){
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isInserted = DB.insertData(editText.getText().toString());
-                if(isInserted == true){
-                    Intent intent = new Intent(getApplicationContext(),Main6Activity.class);
-                    intent.putExtra("com.example.alvin.feedthebaby.SOMETHING",viewALL());
-                    startActivity(intent);
-                }
-                else
-                    Toast.makeText(Main5Activity.this,"Enter Baby Name !!!",Toast.LENGTH_LONG).show();
+                //validate data
+                if(name.getText().toString().equals("") || age.getText().toString().equals("")){
+                    Toast.makeText(Main5Activity.this, "fill in the missing fields", Toast.LENGTH_SHORT).show();
+                    name.setText("");
+                    age.setText("");}
+                //enter the data
+                else{
+                    boolean y  =DB.insertRecord(new Baby(name.getText().toString(),age.getText().toString()));
+                    if(y == true){
+                        Toast.makeText(Main5Activity.this, "information stored", Toast.LENGTH_SHORT).show();
+                        name.setText("");
+                        age.setText("");
+                        ok.setEnabled(false);}
+                    else {
+                        Toast.makeText(Main5Activity.this, "information corrupted", Toast.LENGTH_SHORT).show();}}
             }
         });
     }
-
-        /*
-                Cursor res = DB.getALLDATA();
-                if(res.getCount()==0){
-                    Toast.makeText(getActivity().getApplicationContext(),"ERRor",Toast.LENGTH_LONG).show();
-                    return;}
-                else
-                    Toast.makeText(getActivity().getApplicationContext(),res.getString(0),Toast.LENGTH_LONG).show();
-
-
-                    while (res.moveToNext()){
-                        buffer.append("IdD :"+ res.getString(0)+"\n");
-                        buffer.append("Name :"+ res.getString(1)+"\n");
-                        buffer.append("Surname :"+ res.getString(2)+"\n");
-                        buffer.append("Marks :"+ res.getString(3)+"\n\n");
-                    }
-
-
-
-            }
-        });
-
-    }*/
-        public String viewALL(){
-            Cursor res = DB.getALLDATA();
-            res.moveToNext();
-            return res.getString(1);
-        }
-
 }
